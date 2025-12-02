@@ -1,12 +1,7 @@
 /* /app/api/og/route.tsx */
 import { ImageResponse } from "next/og";
 
-export const size = {
-  width: 1200,
-  height: 630,
-};
-
-export const contentType = "image/png";
+export const runtime = "edge"; // optional, but recommended
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -28,9 +23,9 @@ export async function GET(req: Request) {
           background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
           color: "white",
           fontFamily: "sans-serif",
+          position: "relative",
         }}
       >
-        {/* Category */}
         {category && (
           <div
             style={{
@@ -43,7 +38,6 @@ export async function GET(req: Request) {
           </div>
         )}
 
-        {/* Title */}
         <div
           style={{
             fontSize: 64,
@@ -55,7 +49,6 @@ export async function GET(req: Request) {
           {title}
         </div>
 
-        {/* URL */}
         <div
           style={{
             position: "absolute",
@@ -69,6 +62,9 @@ export async function GET(req: Request) {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      width: 1200,
+      height: 630,
+    }
   );
 }
