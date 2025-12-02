@@ -1,0 +1,74 @@
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "aos/dist/aos.css";
+
+/* Base */
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+}
+@layer components {
+
+  /* --------- リンク（aタグ） hover統一 --------- */
+  a:hover {
+    @apply text-blue-700;
+  }
+
+  /* --------- ボタン hover/focus/active --------- */
+  .btn-blue {
+    @apply bg-blue-600 text-white rounded-lg px-4 py-2 transition;
+  }
+  .btn-blue:hover {
+    @apply bg-blue-700;
+  }
+  .btn-blue:active {
+    @apply bg-blue-800;
+  }
+  .btn-blue:focus {
+    @apply ring-2 ring-blue-300;
+  }
+
+  /* --------- カード hover 統一 --------- */
+  .ca-card {
+    @apply bg-gray-50 border rounded-xl shadow-sm transition transform;
+  }
+  .ca-card:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+
+  /* --------- フォーム input / textarea focus 統一 --------- */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply border-blue-500 ring-2 ring-blue-200 outline-none;
+  }
+
+  /* --------- Footer のリンク hover 統一 --------- */
+  footer a:hover {
+    @apply text-blue-700;
+  }
+
+  /* --------- モバイル用メニューの hover/focus --------- */
+  .mobile-link:hover {
+    @apply text-blue-700;
+  }
+  .mobile-link:active {
+    @apply text-blue-800;
+  }
+  .mobile-link:focus {
+    @apply ring-2 ring-blue-300;
+  }
+
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
